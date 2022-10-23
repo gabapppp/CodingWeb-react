@@ -106,21 +106,20 @@ function Homepage() {
         if (enterPress && ctrlPress) {
             console.log("enterPress", enterPress);
             console.log("ctrlPress", ctrlPress);
-            handleCompile();
         }
     }, [ctrlPress, enterPress]);
 
 
 
-    const onSelectChange = (sl) => {
+    function onSelectChange(sl) {
         console.log("selected Option...", sl);
         setLanguage(sl);
-    };
+    }
 
     const handleCompile = () => {
         setProcessing(true);
         const formData = {
-            language: 'python',
+            language: language.value,
             // encode source code in base64
             //source_code: btoa(code),
             //stdin: btoa(customInput),
@@ -192,7 +191,7 @@ function Homepage() {
                             {processing ? "Processing..." : "Compile and Execute"}
                         </button>
                     </div>
-                    {outputDetails && <OutputDetails outputDetails={outputDetails} />}
+                    {/* {outputDetails && <OutputDetails outputDetails={outputDetails} />} */}
                 </div>
             </div>
         </>

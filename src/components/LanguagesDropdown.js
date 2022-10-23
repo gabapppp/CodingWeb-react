@@ -61,7 +61,7 @@ const languageOptions = [
         id: 1,
         name: "Python3",
         label: "Python3",
-        value: "py"
+        value: "python"
     },
     {
         id: 2,
