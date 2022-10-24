@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-//import axios from "axios";
+import axios from "axios";
 import LanguagesDropdown from "./LanguagesDropdown";
 import CodeEditorWindow from "./CodeEditorWindows";
 import Output from "./Output";
 import CustomInput from "./CustomInput";
 import useKeyPress from "../hooks/useKeyPress";
 import { classnames } from "../utils/general";
-import OutputDetails from "./OutputDetails";
-import axios from "axios";
+//import OutputDetails from "./OutputDetails";
 
-const javascriptDefault = `# Iterative Binary Search Function
+const pythonDefault = `# Iterative Binary Search Function
 # It returns index of x in given array arr if present,
 # else returns -1
 def binary_search(arr, x):
@@ -93,7 +92,7 @@ function Homepage() {
     }
 */
 
-    const [code, setCode] = useState(javascriptDefault);
+    const [code, setCode] = useState(pythonDefault);
     const [language, setLanguage] = useState(languageOptions[0]);
     const [customInput, setCustomInput] = useState("");
     const [outputDetails, setOutputDetails] = useState(null);
@@ -137,8 +136,8 @@ function Homepage() {
             data: formData,
         };
         axios.request(options).then((res) => {
-            console.log(res.data.output);
-            setOutputDetails(res.data.output);
+            console.log(res.data.status);
+            setOutputDetails(res.data);
         }).catch((err) => console.log(err));
         setProcessing(false);
 
