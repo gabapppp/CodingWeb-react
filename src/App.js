@@ -1,11 +1,18 @@
 import Homepage from "./components/Homepage"
-import React from "react";
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import Login from "./components/Login"
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
-    <div className="App">
-      <Homepage />
-    </div>
+    <Routes >
+      <Route path="/" element={<Homepage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+    </Routes>
   );
 }
 
