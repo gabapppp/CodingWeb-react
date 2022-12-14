@@ -1,15 +1,23 @@
-import React, { useState } from "react";
-import { Link, redirect } from 'react-router-dom';
-import AuthService from "../services/auth.service";
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { authActions } from "../store";
+import { history } from "../helpers"
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const authUser = useSelector(x => x.auth.user);
+  const authError = useSelector(x => x.auth.error);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    // redirect to home if already logged in
+    if (authUser) history.navigate('/');
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const onChangeUsername = (e) => {
     const username = e.target.value;
     setUsername(username);
@@ -19,29 +27,8 @@ const Login = () => {
     const password = e.target.value;
     setPassword(password);
   };
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    setMessage("");
-    setLoading(true);
-
-    AuthService.login(username, password).then(
-      () => {
-        navigate("/")
-      },
-      (error) => {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-
-        setLoading(false);
-        setMessage(resMessage);
-      }
-    );
-    redirect("/");
+  const onSubmit = () => {
+    return dispatch(authActions.login({ username, password }));
   }
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -49,7 +36,7 @@ const Login = () => {
         <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase">
           Sign In
         </h1>
-        <form className="mt-6" noValidate onSubmit={handleLogin}>
+        <form className="mt-6" noValidate onSubmit={onSubmit}>
           <div className="mb-2">
             <label
               htmlFor="text"
@@ -87,9 +74,6 @@ const Login = () => {
           <div className="mt-6">
             <button
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-              {loading && (
-                <span className="spinner-border spinner-border-sm"></span>
-              )}
               Login
             </button>
           </div>
@@ -103,13 +87,13 @@ const Login = () => {
           </Link>
         </p>
       </div>
-      {message && (
+      {authError && (
         <div >
           <div role="alert">
-            {message ? (
+            {authError ? (
               <span> Wrong password or username</span>
             ) : (
-              message
+              authError
             )}
           </div>
         </div>

@@ -5,7 +5,7 @@ import Output from "./Output";
 import CustomInput from "./CustomInput";
 import useKeyPress from "../hooks/useKeyPress";
 import { classnames } from "../utils/general";
-import executeService from "../services/execute.service";
+import executeService from "../store/services/execute.service";
 //import OutputDetails from "./OutputDetails";
 
 const languageOptions = [
@@ -130,15 +130,12 @@ function EditorWindows(props) {
 
                 <div className="flex flex-row space-x-4 items-start px-4 py-4">
                     <div className="flex flex-col w-full h-full justify-start items-end">
-                        {code !== "" ? (
-                            <CodeEditorWindow
-                                code={code}
-                                onChange={onChange}
-                                language={language?.value}
-                            />) : (
-                            <>
-                            </>
-                        )}
+
+                        <CodeEditorWindow
+                            code={code}
+                            onChange={onChange}
+                            language={language?.value}
+                        />
                     </div>
 
                     <div className="right-container flex flex-shrink-0 w-[30%] flex-col">
