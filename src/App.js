@@ -26,6 +26,8 @@ function App() {
         </PrivateRoute>} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/home" element={<Homepage />} />
+
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
