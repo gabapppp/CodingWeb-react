@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <div>
@@ -15,14 +15,16 @@ function Header() {
           <div className="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
             <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
               <li>
-                <a className="hover:text-gray-500" href="#">
-                  Home
-                </a>
+              
+                <Link to="/home" className="hover:text-gray-500">
+                Home
+                </Link>
               </li>
               <li>
-                <a className="hover:text-gray-500" href="#">
-                  Tutorial
-                </a>
+                
+                <Link to="/pricing" className="hover:text-gray-500">
+                   Pricing
+                </Link>
               </li>
               <li>
                 <a className="hover:text-gray-500" href="#">
@@ -30,14 +32,9 @@ function Header() {
                 </a>
               </li>
               <li>
-                <a className="hover:text-gray-500" href="#">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-gray-500" href="#">
-                  About Us
-                </a>
+                <Link to="/blog" className="hover:text-gray-500">
+                Blog
+                </Link>
               </li>
             </ul>
           </div>
