@@ -8,7 +8,6 @@ function Header() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(currentUser)
   const LogOutOnClick = (e) => {
     e.preventDefault();
     dispatch(logout());

@@ -10,7 +10,11 @@ const Header = () => {
 }
 
 export const executeCode = (code, language, version) => {
-    return axios.post("http://localhost:8000/compiler/code", { code, language, version }, {
+    let form = new FormData();
+    form.append("code", code);
+    form.append("language", language);
+    form.append("version", version);
+    return axios.post("http://localhost:8000/compiler/code", form, {
         headers: Header()
     })
 }

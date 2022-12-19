@@ -22,11 +22,11 @@ function Card() {
               thông dịch được phát triển từ các ý niệm nguyên mẫu. Ngôn ngữ này
               được dùng rộng rãi cho các trang web cũng như phía máy chủ.
             </p>
-            <Link href="#" className="text-center bg-blue-400 text-fuchsia-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-500 focus:scale-95 transition-all duration-200 ease-out ">
+            <Link to="/coding" className="text-center bg-blue-400 text-fuchsia-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-500 focus:scale-95 transition-all duration-200 ease-out ">
               Bắt đầu ngay
             </Link>
             <Link
-              href="#"
+              to="/coding"
               className="text-center bg-blue-400 text-fuchsia-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-500 focus:scale-95 transition-all duration-200 ease-out "
             >
               Chạy thử ví dụ
@@ -46,13 +46,13 @@ function Card() {
               hướng đối tượng, ...
             </p>
             <Link
-              href="#"
+              to="/coding"
               className="text-center bg-blue-400 text-fuchsia-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-500 focus:scale-95 transition-all duration-200 ease-out "
             >
               Bắt đầu ngay
             </Link>
             <Link
-              href="#"
+              to="/coding"
               className="text-center bg-blue-400 text-fuchsia-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-500 focus:scale-95 transition-all duration-200 ease-out "
             >
               Chạy thử ví dụ
@@ -72,13 +72,13 @@ function Card() {
               và dễ nhớ.
             </p>
             <Link
-              href="#"
+              to="/coding"
               className="text-center bg-blue-400 text-fuchsia-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-500 focus:scale-95 transition-all duration-200 ease-out "
             >
               Bắt đầu ngay
             </Link>
             <Link
-              href="#"
+              to="/coding"
               className="text-center bg-blue-400 text-fuchsia-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-500 focus:scale-95 transition-all duration-200 ease-out "
             >
               Chạy thử ví dụ

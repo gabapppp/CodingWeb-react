@@ -38,6 +38,13 @@ export const languageOptions = [
         label: "Python2",
         value: "python",
         version: 2
+    },
+    {
+        id: 5,
+        name: "Shell",
+        label: "Shell",
+        value: "shell",
+        version: 2
     }
 ];
 
@@ -62,7 +69,6 @@ function EditorWindows(props) {
     }, [ctrlPress, enterPress]);
 
     function onSelectChange(sl) {
-        console.log("selected Option...", sl);
         setLanguage(sl);
     }
 
@@ -71,7 +77,9 @@ function EditorWindows(props) {
         setProcessing(true);
         executeCode(code, language.value, language.version).then((res) => {
             setOutputDetails(res.data)
-            console.log({ code, language, })
+            console.log(res);
+        }).catch((err) => {
+            console.log(err.message)
         })
         setProcessing(false);
     };
