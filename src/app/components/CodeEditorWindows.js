@@ -1,9 +1,5 @@
-// eslint-disable-next-line 
-import React, { useState, useEffect } from "react";
-// eslint-disable-next-line 
-import Editor, { useMonaco } from "@monaco-editor/react";
-// eslint-disable-next-line 
-import executeService from "../store/services/execute.service";
+import React, { useState } from "react";
+import Editor from "@monaco-editor/react";
 
 const pythonDefault = `# Iterative Binary Search Function
 # It returns index of x in given array arr if present,

@@ -3,9 +3,16 @@ import { Link } from "react-router-dom";
 import { HiUpload, HiSaveAs } from "react-icons/hi";
 import { CiLogout } from "react-icons/ci";
 import { IoIosCreate, IoIosOpen } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { logout } from "../slices/auth";
 
 export default function Sidebar() {
   const [showOpenModal, setOpenModal] = useState(false);
+  const dispatch = useDispatch();
+  const LogOutOnClick = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+  }
 
   return (
     <div
@@ -177,6 +184,7 @@ export default function Sidebar() {
             <li className="rounded-sm">
               <Link
                 className="flex items-center p-2 space-x-3 rounded-md"
+                onClick={LogOutOnClick}
               >
                 <CiLogout className="w-6 h-6 text-gray-100" >
                   <path

@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "react-select";
+import { languageOptions } from "./Editor";
 
 const customStyles = {
     control: (styles) => ({
@@ -56,26 +57,8 @@ const customStyles = {
     },
 };
 
-const languageOptions = [
-    {
-        id: 1,
-        name: "Python3",
-        label: "Python3",
-        value: "python"
-    },
-    {
-        id: 2,
-        name: "C++",
-        label: "C++",
-        value: "cpp"
-    },
-    {
-        id: 3,
-        name: "JavaScript",
-        label: "JavaScript",
-        value: "javascript",
-    }
-];
+
+
 const LanguagesDropdown = ({ onSelectChange }) => {
     return (
         <Select
